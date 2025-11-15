@@ -2,4 +2,4 @@
 title: Second page
 ---
 
-This is a connection! Changed
+This is a connection!
