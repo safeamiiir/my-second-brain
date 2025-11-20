@@ -214,3 +214,304 @@ Other Notes
 
 you can do:
 `a += 1`
+
+`*args` vs `**kwarg`
+
+```python
+def my_func(*args):
+	print(args)
+my_func(1, 2, 3)
+# Tuple:
+# > (1, 2, 3)
+
+def my_func(**kwargs):
+	print(kwargs)
+my_func(name='nom', lastname='famly')
+# Dict:
+# > {'name': 'nom', 'lastname': 'famly'}
+```
+
+**Anonymous functions --lambda**
+(Map, Filter)
+
+And it's Lazy that's why we need `list`
+```Python
+a = [1, 2.2, 3.3, 4]
+
+# Map
+numbers_squared = map(lambda x: x**2, a)
+print(type(numbers_squared))
+print(list(only_integer))
+
+# Filter
+only_integer = filter(lambda x: int(x) == x, a)
+print(type(only_integer))
+print(list(numbers_squared))
+for item in only_integer:
+    print(item)
+```
+
+
+**Scope of variables**
+
+LEGB: Local > Enclosing Function > Global > Built-in
+```python
+def make_global_var_scope():
+	global var_scope
+	var_scope = 'Global'
+	print(f"[3. Inside function make_global_var_scope()] Scope of var is: ", var_scope)
+	
+def enclosing_var():
+	var_scope = 'Enclosing Function'
+	print(f"[2. Inside function enclosing_var()] Scope of var is: ", var_scope)
+
+var_scope = 'Local'
+print(f"[1. Before any function call] Scope of var is: ", var_scope)
+enclosing_var()
+make_global_var_scope()
+print(f"[4. After function calls] Scope of var is: ", var_scope)
+
+```
+
+
+##### OOP:
+
+Method and Attribute
+
+how to instantiate:
+
+```Python
+# Define a class
+class ClassName():
+	class_attribute = "class_level_attr"
+	def __init__(self, param1="default_value"):
+		# Attribute
+		self.param1 = param1
+		print("Object created:", self.class_attribute)
+		#OR ClassName.class_attribute
+	
+	# Method			
+	def call_param1(self):
+		print(f"This is param1", self.param1)
+		
+# Make an instance
+sample_instance = ClassName("some_value")
+print("class type:", type(ClassName))
+print("instance type:", type(sample_instance))
+print(sample_instance.call_param1())
+print(sample_instance.class_attribute)
+```
+
+You can also do
+```python
+class Book():
+	book_type = "something_0"
+	
+my_book_1 = Book()
+my_book_2 = Book()
+
+my_book_1.book_type = "something_2"
+print(my_book_1.book_type)
+print(my_book_2.book_type)
+# OR
+Book.book_type = "something_1"
+print(my_book_1.book_type)
+print(my_book_2.book_type)
+```
+
+Inheritance
+
+```python
+class Book():
+	my_attr = "my_attr in class Book()"
+	def __init__(self, name, pages):
+		print("Book() inited")
+		self.name = name
+		self.pages = pages
+		
+	def open():
+		print("open called in Book")
+		
+class InheritedWithNoSuprtFromBook(Book):
+	def __init__(self):
+		print("Roman Book inited with", self.my_attr)
+
+class RomanBook(Book):
+	def __init__(self, name, pages, volume):
+		Book.__init__(self, name, pages)
+		print("Roman Book inited")
+		self.volume = volume
+	def open():
+		print("open called in Roman book")		
+
+my_book = Book("book_name", "book_pages")
+InheritedWithNoSuprtFromBook()
+my_roman_book = RomanBook("book_name", "book_pages", "2")
+```
+
+
+Abstract class
+
+```python
+class Human():
+	def __init__(self, name):
+		pass
+	def jump(self):
+		raise NotImplementedError("implement jump")
+		
+class Man(Human):
+	pass
+	
+user_1 = Man("Amirreza")
+user_1.jump()
+# Shows that Man().jumo() MUST implement that!
+```
+
+Polymorphism: You can run one method with different behaviours!
+	Example: File() class with show() method, but for different classes like Pdf(), Png(), Txt()
+
+
+**Magic methods**
+- Or Special methods
+- Or Dunder -> (double underscore)
+```python
+class myClass():
+	def __init__(self):
+		pass
+	
+	def __len__(self):
+		# can not return of type str() here
+		return 12345
+	
+	def __str__(self):
+		return "return str()"
+	
+	def __del__(self):
+	    # can not return() here
+		print( "it's deleted")
+# __init__
+my_class = myClass()
+
+# __str__
+print(myClass())
+# OR str(myClass())
+
+# __len__
+print(len(my_class))
+
+# __del__
+del(my_class)
+```
+
+
+OutOfScope:
+- Friendship? in C++
+- Concrete vs Abstract
+
+**Modules**
+
+```python
+import library
+from library import function
+```
+
+- Module (Library) -> is basically a Python file!
+- Package -> is basically a directory with Python files!
+	We MUST have a `__init__.py`  to make directory a Package.
+	`__name__` is the Package name if you ask this in your `__main__` program!
+	
+	When useful? if it's imported as a package or it's being as main! like in CLI
+- You can import within a function!
+```python
+def print_now():
+	from datetime import datetime
+	now = datetime.now()
+	print(now)
+	
+print_now()
+  ```
+
+**Error Handling**
+
+Syntax error... (`NameError`)
+
+```python
+try:
+	prit("there' a syntx error in print")
+except:
+	print("No error!")
+```
+
+Math 
+ `> 5 / 0` ->  `ZeroDivisionError`
+ ```python
+def divis(a, b):
+	try:
+		return a/b
+	except ZeroDivisionError:
+		print("b can not be zero")
+		return None
+	except Exception as e:
+		print(f"An other error {e}")
+		return None
+		
+print(divis(1, 2))
+print(divis(1, 0))
+print(divis("1", 2))
+ ```
+
+Look at: [built-in Exceptions](https://docs.python.org/3/library/exceptions.html) in python
+
+```python
+try:
+	# First try this
+except:
+	# Show exceptions
+else:
+	# Will run if no exception
+finally:
+	# Will be done in any case
+```
+
+Python Improvement Proposal (PEP) -> PEP 8
+
+Linter -> (Pylint)  Checks the logic, format, bad practices, ...
+Formatter -> (Black) Only corrects the code format!
+Testing -> (unittest) Test the functionality
+
+
+**Decorator**
+
+Unrelated: `is` in python
+
+Write a function in a way that changes the functions functionality in a specific way!
+
+Functions as a first class citizen in python
+
+```python
+def say_hello():
+	print("Hello there!")
+
+def do(what_to_call):
+	what_to_call()
+
+do(say_hello)
+```
+
+```python
+def my_decorator(f):
+	def wrapper():
+		f()
+		print("I'm a decorator!")
+	return wrapper
+
+@my_decorator
+def say_hello():
+	print("Hello there!")
+	
+say_hello()
+```
+
+
+**Generator**
+
