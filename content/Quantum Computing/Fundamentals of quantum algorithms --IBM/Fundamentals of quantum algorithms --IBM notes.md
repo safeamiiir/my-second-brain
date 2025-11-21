@@ -112,3 +112,48 @@ Glossary
 	- quotient
 	- remainder
 # Lesson 3 - Phase estimation and factoring
+
+Spectral theorem
+
+-> just for unitary matrices
+-> Phase kickback helps to learn more about Eigen value
+-> iterative phase estimation
+
+Discrete Fourier transform: Linear mapping on vectors --being represented by matrix
++Fast Fourier transform
+Quantum Fourier Transform (QFT) as a unitary operation
+
+Best approximation always have the highest probability associated with them.
+|
+|-> what ever value of y/4 is closes to the true value of Theta
+
+Try QFT for different sizes: 1 (Hadamard), 2, 4, 8 -> we learn when N is a power of 2:
+- it's like a controlled-phase gate!
+- it's recursive in nature.
+
+In terms of complexity: Order-finding problem ≡ Phase-estimation
+
+
+
+Glossary:
+- Denominator, nominator
+- Necessary and Sufficient (لازم و کافی)
+- congruent, triple equal, ≡ Vs. equal, =
+
+
+# Lesson 4 - Grover's algorithm
+
+unstructured search
+-> let's think about it as a query problem
+- It's like searching for a particular phone number in a phone book
+	Vs. searching for a name which is much easier presuming that the name had be alphabetised.
+- It's not about searching through data
+	Vs. searching for a solution for a complicated equation
+- it's searching for a combination that opens a lock
+
+There's an answer in O(2^n) for this
+
+
+Glossary:
+- Hereafter
+- coeficient
