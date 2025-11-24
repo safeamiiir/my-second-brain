@@ -19,7 +19,7 @@ export const sharedPageComponents: SharedLayout = {
   ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/safeamiiir/my-second-brain/tree/main"
+      GitHub: "https://github.com/safeamiiir/my-second-brain/"
     },
   }),
 }
