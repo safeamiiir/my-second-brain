@@ -514,4 +514,102 @@ say_hello()
 
 
 **Generator**
+TBD
 
+
+**Interesting modules in Standard library**
+
+```python
+import datetime
+my_date = datetime.date(2025, 1, 1)
+my_date.day
+my_date.month
+my_date.weekday()
+my_date.ctime()
+
+my_time = datetime.datetime(1999, 1, 1, 11, 11)
+my_time.ctime()
+my_time.date.today()
+now_time = datetime.datetime.now()
+now_time - my_time
+
+import math
+math.pi
+math.e
+math.inf
+math.log
+math.degrees()
+# Not to do with Math
+round()
+
+import random
+random.randint(0. 6)
+random.random()
+random.choice(['a', 'b', 'c'])
+random.choices(['a', 'b', 'c'], k =2)
+random.sample(['a', 'b', 'c'], k =2)
+random.shuffle(['a', 'b', 'c'])
+
+
+import re
+strin = "this is a test again test"
+re.search('test', s)
+r = re.search('test', s)
+re.compile()
+r.start()
+r.end()
+r.group() # Gives the first group in the pattern
+r.span()
+re.findall('test', s)
+re.finditer('test', s)
+
+
+import decimal
+
+decimal.getcontext()
+decimal.getcontext().prec = 3
+decimal.Decimal()
+decimal.Decimal(0.1) + decimal.Decimal(0.2) != decimal.Decimal(0.3)
+decimal.Decimal('0.1') + decimal.Decimal('0.2') == decimal.Decimal('0.3')
+
+import os
+
+# File stuff doable
+csv,
+gzip,
+...
+
+```
+
+How seed works in random?
+
+```python
+random.random(5)
+random.ranint(1, 6)
+random.ranint(1, 6)
+random.ranint(1, 6)
+
+random.random(5)
+random.ranint(1, 6)
+random.ranint(1, 6)
+random.ranint(1, 6)
+```
+
+**Learn RegEx**
+
+`\d` -> digits, `\D` -> all that is not \d
+`\w` -> Alphanumeric words, `\W` all that is not \w
+`\s` -> White spaces -> `/S` all that is not \S
+`.` -> Accept anything
+
+`+`  ->  1 or more
+`*` -> 0 or more
+`?` -> 0 or 1
+`{3}` -> only 3 ta
+`{2, 4}` -> only 2 ta until 4 ta
+
+`^` just in the start 
+`()` -> you can groupify
+`[this]` -> Anything except `this`
+
+RegEx is Greedy! finds the biggest possible group.
