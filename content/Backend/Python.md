@@ -204,6 +204,8 @@ other nice functions: `min`, `max`, `from random import randint`, ...
 ##### Methods
 
 help() will show the doc string.
+try `__doc__` to read more about it.
+try `dir()` to see all the options in that class.
 Function names -> snake_case
 my_func(n=1) -> how to default the arg
 return item_1, item_2 -> return a tuple
@@ -613,3 +615,97 @@ random.ranint(1, 6)
 `[this]` -> Anything except `this`
 
 RegEx is Greedy! finds the biggest possible group.
+
+#### More libraries
+Web scraping
+```python
+import request
+
+r = request.get('<url>')
+
+r.status_code
+r.url
+data = r.text
+
+import bs4
+
+soup = bs4.BeautifulSoup(data)
+title = soup.select("title")
+title[0].get_text()
+
+```
+
+File: Images
+```python
+# inatall pillow
+from PIL import image
+
+my_image = Image.open("/my-image.jpg")
+
+my_image.show()
+my_image.finename()
+my_image.format()
+my_image.size()
+my_image.mode()
+
+my_image.getpixel()
+my_image.putpixel()
+my_image.putalpha()
+
+my_image.close()
+```
+
+Files: CSV
+```python
+import csv
+
+my_file = open("my_csv_file.csv", encoding="utf-8")
+
+csv_data = csv.reader(my_file)
+csv_data_dic = csv.DictReader(my_file)
+
+
+out_file = open('myNewCsv', mode='w', newline='')
+csv_writer = csv.writer(outfile, delimiter="|")
+csv_writer.writerow()
+
+my_file.close()
+```
+
+Files: PDF
+```python
+import pyPDF2
+
+
+pdf = PyPDF2.PdfReader("sample.pdf")
+pdf.pages[]
+pdf.pages[0].extract_text()
+
+```
+
+Files: Excel
+```python
+import openpyxl
+
+workbook = openpyxl.load_workbook("sample.xlsx")
+worksheet = workbook.active
+worksheet["A1"].value
+worksheet["A4"].fill
+
+new_wb = openpyxl.Workbook()
+ws = new_wb.active
+ws["A1"] = "something"
+new_wb.save("out.xlsx")
+
+```
+
+JSON
+```python
+import json
+
+data = {'name': 'asd', 'lastname', 'qwe'}
+# s refers to string!
+json.dumps(data)
+new_data = json.loads(d)
+```
+
