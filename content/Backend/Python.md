@@ -1,9 +1,10 @@
+> These are my notes from Jadi's [compehensive python course ](https://maktabkhooneh.org/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%D9%BE%D8%A7%DB%8C%D8%AA%D9%88%D9%86-%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%DB%8C-mk346/).
+
 Poetry list: `poetry env list` or `poetry env list --full-path`
 Poetry remove env: `poetry env remove [<my-env-name>]`
 
 Data types:
 Primitives
-
 - Integer
 - Float
 - String
@@ -15,18 +16,15 @@ Primitives
 - set
 
 Operations
-
 ```python
 +
 -
 *
 /
 //
-
 ```
 
 Arithmetic Precedence
-
 ```python
 ()
 **
@@ -36,7 +34,6 @@ Arithmetic Precedence
 ```
 
 Variables
-
 - variables: case sensitive
 - regular way is snake_case
 - Dynamic type
@@ -50,7 +47,6 @@ after `.` you can call a method
 #### Data types
 
 ##### Strings
-
 - '' or "": '' -> suggested in dictionaries
 - they're a list -> you can do `my_var[0]` or even _slicing_: `my_var[1:4]`
 - """ anything """ -> the most useful for comments
@@ -64,9 +60,7 @@ after `.` you can call a method
   - OR similarly you can do `"Hello {0} {1} you are {2}".format(name, last_name, age)` you can also change the order of the numbers
   - OR `"Hello {nom} {family} you are {sen:1.1f}".format(nom=name, family=last_name, sen=age)` you can also add precision.
   - `f"Hello {name} {last_name}, you are {age:1.1f} years old"
-
 ##### Lists
-
 - similar to arrays
 - it's ordered
 - Don't need to be the same type: str, number, ...
@@ -81,19 +75,16 @@ after `.` you can call a method
   - sort()
 
 ##### Dictionary
-
 - They're key/value, key: string or number
 - it's unordered BUT from 3.7 it's ordered
 - functions:
   - get() -> like a property! useful: `.get("item", -1)` in case we missed the item
 
 ##### Tuple
-
 - similar to lists, except that are immutable: `'tuple' object does not support item assignment`
 - Why then? quicker/less memory/...
 
 ##### Set
-
 - It's only consist of unique items.
 - it's unordered
 - functions:
@@ -101,8 +92,101 @@ after `.` you can call a method
   - union(my_second_set)
   - intersection(my_second_set)
 
-##### Boolean
+Some examples
+```python
+#### Numbers ######
+hex(12)
+# 0x it's a hex
+oct(12)
+# 0o it's a hex
+bin(12)
+# 0b it's a hex
 
+int('12', 2)
+# binary
+
+###### Strings ######
+my_string = "this is me here"
+
+my_string.title()
+my_string.count("e")
+my_string.find("e")
+my_string.find("not_found") # -1
+my_string.center(50, "*")
+
+my_string.is<so_many_options>
+
+s.startswith()
+s.endswith()
+
+s.split(' ')
+s.partition('is')
+''.join(['this', 'is', 'a', 'list'])
+
+###### Sets ######
+my_set = {1, 2, 3}
+# OR my_set = set()
+my_set.add(1)
+my_set.add(4)
+my_set.remove(1)
+my_set.remove(5)
+my_set.discard(5)
+
+my_new_set = my_set
+# my_new_set is a new reference to my_set !!!
+my_new_set.pop()
+my_copied_new_set = my_set.copy()
+
+s1 = {1, 2, 3, 4}
+s1 = {3, 4, 5, 6}
+s1.difference(s2)
+s1.difference_update(s2)
+s1.intersection(s2)
+s1.intersection_update(s2)
+s1.isdisjoint(s2)
+s1.issubset(s2)
+s1.issuperset(s2)
+s1.union(s2)
+s1.update(s2)
+
+
+###### Dictionaries ######
+d = {'name': 'John', lastname: 'Doe'}
+# or d = dict()
+
+# List:
+l = [1, 2, 3]
+l.append(3)
+l.append(5)
+l.count(3)
+i.insert(3, 4)
+l.remove(2)
+l.pop()
+l.pop(0)
+
+# List comprehension:
+[x*2 for x in [1, 2, 3]]
+
+###### Dictionaries ######
+# Can do the same dictionary comprehention
+{x: x*2 for x in [1, 2, 3]}
+{f"k{x}": x*2 for x in [1, 2, 3]}
+{k: v for k, v in zip(['a', 'b'], [0, 1])}
+my_dict = {k: v for k, v in zip(['a', 'b', 'c', 'd'], range(4))}
+my_dict.values()
+my_dict.keys()
+my_dict.items()
+
+# A common use:
+for k, v in my_dict.items()
+	prin(k, v)
+	
+for v in my_dict.values()
+	prin(v)
+
+```
+
+##### Boolean
 - True, False
 - remember we have `and`, `or`, `not` operators
 - remember we have ‍‍‍‍‍‍‍‍‍‍`> < >= <=`
@@ -112,7 +196,6 @@ after `.` you can call a method
   - `2 in myList` -> `False`
 
 ##### File
-
 - `f = open("myfile.txt")`
 - type() -> `file`
 - function
@@ -125,7 +208,6 @@ after `.` you can call a method
 - Suggested: `with`
 
 ##### Conditions
-
 ```python
 if condition:
 	statement_1
@@ -138,7 +220,6 @@ else:
 ##### Loops
 
 FOR
-
 ```python
 # for in
 for item in my_list:
@@ -148,7 +229,6 @@ for item in my_list:
 for in -> list -> items, tuple -> items, dict -> keys (can do list.items() to get key<>value), string -> chars,
 
 WHILE
-
 ```python
 while condition:
 	do_something
@@ -159,7 +239,6 @@ break -> stop, and leave the loop.
 continue -> ignore the rest, get back to the start of the loop.
 
 Shorthands:
-
 ```python
 # list comprehension
 list = [1, 0.45, 9, -1]
@@ -173,7 +252,6 @@ doubled_even_list = [  2 * x if x % 2 == 0 else None for x in list ]
 ```
 
 Generators:
-
 - `range(m, n, s)` -> Is a generator: gives me a list from m (default = 0) to n with step s (default = 1) -> yields number
 - enumerate -> yields tuple
 - zip -> yields tuples
@@ -202,7 +280,6 @@ for x in zip(my_names, my_last_names, my_age):
 other nice functions: `min`, `max`, `from random import randint`, ...
 
 ##### Methods
-
 help() will show the doc string.
 try `__doc__` to read more about it.
 try `dir()` to see all the options in that class.
@@ -255,7 +332,6 @@ for item in only_integer:
 
 
 **Scope of variables**
-
 LEGB: Local > Enclosing Function > Global > Built-in
 ```python
 def make_global_var_scope():
@@ -277,7 +353,6 @@ print(f"[4. After function calls] Scope of var is: ", var_scope)
 
 
 ##### OOP:
-
 Method and Attribute
 
 how to instantiate:
@@ -322,7 +397,6 @@ print(my_book_2.book_type)
 ```
 
 Inheritance
-
 ```python
 class Book():
 	my_attr = "my_attr in class Book()"
@@ -353,7 +427,6 @@ my_roman_book = RomanBook("book_name", "book_pages", "2")
 
 
 Abstract class
-
 ```python
 class Human():
 	def __init__(self, name):
@@ -411,7 +484,6 @@ OutOfScope:
 - Concrete vs Abstract
 
 **Modules**
-
 ```python
 import library
 from library import function
@@ -520,7 +592,6 @@ TBD
 
 
 **Interesting modules in Standard library**
-
 ```python
 import datetime
 my_date = datetime.date(2025, 1, 1)
@@ -584,7 +655,6 @@ gzip,
 ```
 
 How seed works in random?
-
 ```python
 random.random(5)
 random.ranint(1, 6)
@@ -709,3 +779,49 @@ json.dumps(data)
 new_data = json.loads(d)
 ```
 
+**Itertools**
+```python
+import itertools as it
+
+it.cycle([1, 2, 3])
+next(a)
+# 1
+next(a)
+# 2
+next(a)
+# 3
+next(a)
+# 1
+# ...
+
+nums = [1, 2, 3, 4]
+combs = it.combinations(nums, 2)
+combs = it.combinations_with_replacement(nums, 2)
+print(list(combs))
+
+counter(3, 10)
+next(counter)
+# 3
+next(counter)
+# 10
+next(counter)
+# 23
+# ...
+
+acc = it.accumulate(nums)
+print(list(acc))
+
+# More
+it.product()
+it.tee()
+it.repeat()
+it.chain()
+```
+
+#### Virtual Environment
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip freeze > requirements.txt
+pip install -r requirements.txt
+```
