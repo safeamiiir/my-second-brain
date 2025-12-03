@@ -24,7 +24,7 @@ Todays computers have a 64-bits wide registers.
 ![[memory-row.png]]
 
 **Solution:** Grid: if ROW and COLUMN both are 1 the AND gate could turn the enable write on!
-
+![[16-16-matrix.png]]
 ![[memory-grid.png]]
 e.g. Then now for a 256-bits width we need (2 * 16(rows+columns) + 1 (data)+ 1(write enable) + 1(read enable) = 35)
 
