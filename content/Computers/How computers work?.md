@@ -13,6 +13,7 @@ It "latches onto" a particular value and stays that way.
 WRITE ENABLE
 	If 1 -> overwrites the DATA OUTPUT value
 	If 0 -> nothing will change the DATA OUTPUT value
+
 ![[gated-latch.png]]
 
 8 Latches side-by-side 8 bits of information --> A group of lathes operating like this is called **a register** --which holds a single number and the number of bits in a register is called its **width**.
@@ -24,8 +25,10 @@ Todays computers have a 64-bits wide registers.
 ![[memory-row.png]]
 
 **Solution:** Grid: if ROW and COLUMN both are 1 the AND gate could turn the enable write on!
+
 ![[16-16-matrix.png]]
 ![[memory-grid.png]]
+
 e.g. Then now for a 256-bits width we need (2 * 16(rows+columns) + 1 (data)+ 1(write enable) + 1(read enable) = 35)
 
 Memory Address! defines the intersection
@@ -49,3 +52,10 @@ We can make larger and larger memories.
 The point about RAM is that by this design we can have access to any address we want on the memory at anytime! meaning we have a Random Access Memory (RAM)
 
 SRAM, DRAM, Flash Memory are Fundamentally similar to this but different in implementations.
+
+### Multiplexer
+
+A multiplexer is used to help us output the right memory address, we need tw 16:1 multiplexers to handle a 16\*16 memory grid.
+
+![[multiplexer.webp | from: https://www.geeksforgeeks.org/digital-logic/multiplexers-in-digital-logic/]]
+
