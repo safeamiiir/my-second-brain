@@ -1,4 +1,3 @@
-
 # Section 3 – Big O
 
 What is good code?
@@ -106,4 +105,3 @@ Data structure + Algorithms = Programs
 Questions to be answered:
 1. How to build a DataStructure?
 2. How to use a DataStructure?
-
