@@ -1,0 +1,2 @@
+- imperative vs declarative
+- explicit vs implicit
