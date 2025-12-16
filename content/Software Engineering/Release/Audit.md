@@ -1,4 +1,4 @@
-\[Commands from [here](https://pnpm.io/cli/audit):\]
+\[Commands from [here](https://pnpm.io/cli/audit)\]
 
 #### On going update:
 1. You can always find the vulnerabilities using:`pnpm audit`

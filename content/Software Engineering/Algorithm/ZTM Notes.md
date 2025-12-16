@@ -105,3 +105,13 @@ Data structure + Algorithms = Programs
 Questions to be answered:
 1. How to build a DataStructure?
 2. How to use a DataStructure?
+
+# Section 6 – Data structures: Arrays
+
+| DS Type | Operation | Big O                   | method[s] in JS (`Array`)           | method in Python (`list`)  |
+| ------- | --------- | ----------------------- | ----------------------------------- | -------------------------- |
+| Array   | Look up   | O(1)                    | `my_arr[<num>]`, `.pop()`           | `my_list[<num>]`, `.pop()` |
+| Array   | Push      | O(1)<br>If dynamic O(n) | `.push()`                           | `.append()`                |
+| Array   | Insert    | O(n)                    | `.unshift()`, `.splice()`           | `.insert()`                |
+| Array   | Delete    | O(n)                    | `delete my_arr[<num>]`, `.splice()` | `.remove()`                |
+
