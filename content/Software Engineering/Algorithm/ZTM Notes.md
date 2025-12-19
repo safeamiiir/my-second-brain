@@ -114,4 +114,26 @@ Questions to be answered:
 | Array   | Push      | O(1)<br>If dynamic O(n) | `.push()`                           | `.append()`                |
 | Array   | Insert    | O(n)                    | `.unshift()`, `.splice()`           | `.insert()`                |
 | Array   | Delete    | O(n)                    | `delete my_arr[<num>]`, `.splice()` | `.remove()`                |
+Note: Treat any String question as an array question by: `split` and `join`
 
+Question: Reverse words in a string!
+Solution:
+```python
+def string_reverser(inp_string):
+	inp_string_splitted = inp_string.split()
+	reversed_arr = []
+	for item in inp_string_splitted:
+		my_word = ""
+		# for (i = len(item); i <= 0 ;i--)
+		for char in range(len(item), 0, -1):
+			my_word += item[char-1]
+		reversed_arr.append(my_word)
+	return ' '.join(reversed_arr)
+```
+
+\*This is a different challenge from the one in the course.
+
+Question: merge two sorted arrays:
+```python
+		
+```
