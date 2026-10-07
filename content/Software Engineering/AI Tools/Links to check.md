@@ -1,0 +1,3 @@
+- https://github.com/NousResearch/hermes-agent
+- GLM (z.ai)
+- https://sub.thursdai.news/
