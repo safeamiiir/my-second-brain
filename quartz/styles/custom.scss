@@ -1,3 +1,22 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// Farsi Notes: render page content right-to-left while keeping the site chrome LTR.
+// Keyed on body[data-slug] because the SPA router morphs <body> but not <html dir>.
+body[data-slug^="farsi-notes/" i] {
+  .article-title,
+  article {
+    direction: rtl;
+    text-align: start;
+  }
+
+  article {
+    pre,
+    code,
+    .katex {
+      direction: ltr;
+      text-align: left;
+    }
+  }
+}
